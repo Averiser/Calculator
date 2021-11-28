@@ -35,14 +35,15 @@ class ViewController: UIViewController {
     isFinishedTypingNumber = true
     
     if let calcMethod = sender.currentTitle {
-      if calcMethod == "+/-" {
-        displayValue = displayValue * -1 // or displayValue *= -1
-      } else if calcMethod == "%" {
-        displayValue = displayValue / 100
-      } else if calcMethod == "AC" {
-        displayLabel.text = "0"
+      
+      let calculator = CalculatorLogic(number: Double)
+      
+      guard let result = calculator.calculate(symbol: calcMethod) else {
+        fatalError("The result of the calculation is nil.")
       }
+     displayValue = result
     }
+    
   }
   
   @IBAction func numButtonPressed(_ sender: UIButton) {
