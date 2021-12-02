@@ -17,11 +17,14 @@ class ViewController: UIViewController {
   private var displayValue: Double {
     
     get {
+      
+      
       guard let number = Double(displayLabel.text!) else {
         fatalError("Cannot convert display label text to a Double.")
       }
       return number
     }
+    
     set {
       displayLabel.text = String(newValue)
     }
@@ -39,10 +42,10 @@ class ViewController: UIViewController {
       
       calculator.setNumber(displayValue)
             
-      guard let result = calculator.calculate(symbol: calcMethod) else {
-        fatalError("The result of the calculation is nil.")
+      if let result = calculator.calculate(symbol: calcMethod) {
+        displayValue = result
       }
-     displayValue = result
+     
     }
     
   }
