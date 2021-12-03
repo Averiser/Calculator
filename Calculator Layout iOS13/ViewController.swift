@@ -17,8 +17,6 @@ class ViewController: UIViewController {
   private var displayValue: Double {
     
     get {
-      
-      
       guard let number = Double(displayLabel.text!) else {
         fatalError("Cannot convert display label text to a Double.")
       }
@@ -37,17 +35,15 @@ class ViewController: UIViewController {
     // What happens when a non-number button is pressed
      
     isFinishedTypingNumber = true
+    calculator.setNumber(displayValue)
     
     if let calcMethod = sender.currentTitle {
       
-      calculator.setNumber(displayValue)
-            
       if let result = calculator.calculate(symbol: calcMethod) {
         displayValue = result
       }
      
     }
-    
   }
   
   @IBAction func numButtonPressed(_ sender: UIButton) {
@@ -71,11 +67,7 @@ class ViewController: UIViewController {
         displayLabel.text = displayLabel.text! + numValue
       }
       
-      
     }
   }
-  
-
-
 }
 

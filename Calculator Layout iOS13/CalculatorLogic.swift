@@ -40,7 +40,8 @@ struct CalculatorLogic {
   
   private func performTwoNumCalculation(n2: Double) -> Double? {
     
-    if let n1 = intermediateCalculation?.n1, let operation = intermediateCalculation?.calcMethod {
+    if let n1 = intermediateCalculation?.n1,
+        let operation = intermediateCalculation?.calcMethod {
     
       switch operation {
       case "+":
